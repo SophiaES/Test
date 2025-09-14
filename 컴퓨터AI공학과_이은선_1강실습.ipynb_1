@@ -1,0 +1,260 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNues0cLv9ElekqWqTq/rK9",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/SophiaES/Test/blob/main/%EC%BB%B4%ED%93%A8%ED%84%B0AI%EA%B3%B5%ED%95%99%EA%B3%BC_%EC%9D%B4%EC%9D%80%EC%84%A0_1%EA%B0%95%EC%8B%A4%EC%8A%B5.ipynb_1\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 파이썬 4가지 자료구조 예제 - 리스트, 튜플, 셋, 딕셔너리"
+      ],
+      "metadata": {
+        "id": "w7SU6CEGd2ZS"
+      },
+      "execution_count": 10,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "리스트 (List)\n",
+        "정의: 순서가 있으며 변경 가능한(mutable) 자료구조\n",
+        "\n",
+        "특징: 대괄호 [ ]로 표현하며, 인덱스가 있어 요소 위치 접근 가능. 요소 추가, 수정, 삭제 가능. 중복 요소 허용.\n",
+        "\n",
+        "용도: 순서가 중요하고 데이터를 자주 변경해야 할 때"
+      ],
+      "metadata": {
+        "id": "QdmIjNA3iQqJ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"1. 리스트(List) - 순서 있고, 수정 가능\")\n",
+        "my_list = [1, 2, 3, 2, 4]\n",
+        "print(\"리스트:\", my_list)\n",
+        "my_list[0] = 100\n",
+        "print(\"수정 후 리스트:\", my_list)\n",
+        "print()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3dgn1kZegV3u",
+        "outputId": "30e29ed5-bb23-4977-b2d1-cf64d94a9367"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1. 리스트(List) - 순서 있고, 수정 가능\n",
+            "리스트: [1, 2, 3, 2, 4]\n",
+            "수정 후 리스트: [100, 2, 3, 2, 4]\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "튜플 (Tuple)\n",
+        "정의: 순서가 있으나 변경 불가능한(immutable) 자료구조\n",
+        "\n",
+        "특징: 소괄호 ( )로 표현하며, 인덱스가 있어 위치 접근 가능. 요소 추가, 수정, 삭제 불가. 중복 허용.\n",
+        "\n",
+        "용도: 데이터가 변경되지 않아야 할 때, 데이터 무결성 유지용"
+      ],
+      "metadata": {
+        "id": "0JUbyR4eilpw"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"2. 튜플(Tuple) - 순서 있고, 수정 불가능(immutable)\")\n",
+        "my_tuple = (1, 2, 3, 2, 4)\n",
+        "print(\"튜플:\", my_tuple)\n",
+        "try:\n",
+        "    my_tuple[0] = 100  # 오류 발생\n",
+        "except TypeError as e:\n",
+        "    print(\"튜플 수정 시도 오류:\", e)\n",
+        "print()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "G_BnfJF7gcW7",
+        "outputId": "3dcee4df-4bdf-454c-9cee-ef0bea8d1145"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "2. 튜플(Tuple) - 순서 있고, 수정 불가능(immutable)\n",
+            "튜플: (1, 2, 3, 2, 4)\n",
+            "튜플 수정 시도 오류: 'tuple' object does not support item assignment\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "셋 (Set)\n",
+        "정의: 순서가 없고(unique) 중복 불허하는 변경 가능한 자료구조\n",
+        "\n",
+        "특징: 중괄호 { }로 표현하며, 순서 없음. 인덱스 접근 불가. 요소 추가, 삭제 가능. 중복된 값 자동 제거.\n",
+        "\n",
+        "용도: 중복 제거 또는 빠른 멤버십 테스트가 필요할 때"
+      ],
+      "metadata": {
+        "id": "lJQxy179iq0w"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"3. 셋(Set) - 순서 없고, 중복 불허\")\n",
+        "my_set = {1, 2, 3, 2, 4}\n",
+        "print(\"셋:\", my_set)\n",
+        "my_set.add(5)\n",
+        "print(\"추가 후 셋:\", my_set)\n",
+        "print()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "uCIt5sADgfu7",
+        "outputId": "2edaf245-22b3-46ae-a2f9-79b5375e87f7"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "3. 셋(Set) - 순서 없고, 중복 불허\n",
+            "셋: {1, 2, 3, 4}\n",
+            "추가 후 셋: {1, 2, 3, 4, 5}\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "딕셔너리 (Dictionary)\n",
+        "정의: 키-값 쌍으로 데이터를 저장하는 변경 가능한 자료구조\n",
+        "\n",
+        "특징: {키: 값} 형태, 키는 유일하며 순서가 있음(Python 3.7+). 키를 통해 값에 빠르게 접근 가능. 중복 키 불가.\n",
+        "\n",
+        "용도: 연관된 데이터(속성) 쌍 저장 및 조회가 필요할 때"
+      ],
+      "metadata": {
+        "id": "HKGhB2Yiiy3U"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"4. 딕셔너리(Dictionary) - 키-값 쌍 구조, 키는 유일함\")\n",
+        "my_dict = {\"apple\": 1, \"banana\": 2, \"cherry\": 3}\n",
+        "print(\"딕셔너리:\", my_dict)\n",
+        "my_dict[\"apple\"] = 100\n",
+        "my_dict[\"date\"] = 4\n",
+        "print(\"수정 및 추가 후 딕셔너리:\", my_dict)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-PI2hxWOglQL",
+        "outputId": "6f5add1e-c43f-4b04-e11e-5e11fe12dfc4"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "4. 딕셔너리(Dictionary) - 키-값 쌍 구조, 키는 유일함\n",
+            "딕셔너리: {'apple': 1, 'banana': 2, 'cherry': 3}\n",
+            "수정 및 추가 후 딕셔너리: {'apple': 100, 'banana': 2, 'cherry': 3, 'date': 4}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "2.간단한 자기 소개와 코랩링크"
+      ],
+      "metadata": {
+        "id": "PPBHRa2NkhBh"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 15,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rjlfbwqPXXZ3",
+        "outputId": "78ec535e-492d-4cb6-f847-aeb8f9053c7e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "안녕하세요.\n",
+            "저는 컴퓨터AI공학과 이은선입니다.\n",
+            "AI와 영상데이터 처리를 더 깊이 배우고 싶어서 이번 과목을 수강하게 되었습니다.\n",
+            "열심히 최선을 다해보도록 하겠습니다!\n"
+          ]
+        }
+      ],
+      "source": [
+        "print(\"안녕하세요.\")\n",
+        "print(\"저는 컴퓨터AI공학과 이은선입니다.\")\n",
+        "print(\"AI와 영상데이터 처리를 더 깊이 배우고 싶어서 이번 과목을 수강하게 되었습니다.\")\n",
+        "print(\"열심히 최선을 다해보도록 하겠습니다!\")"
+      ]
+    }
+  ]
+}
